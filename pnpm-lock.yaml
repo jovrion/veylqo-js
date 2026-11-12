@@ -20,7 +20,11 @@ importers:
         specifier: ^7.13.0
         version: 7.13.0(typescript@5.9.3)
 
-  packages/element: {}
+  packages/element:
+    dependencies:
+      '@veylqo/core':
+        specifier: workspace:*
+        version: link:../core
 
 packages:
 
