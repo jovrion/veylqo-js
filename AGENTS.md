@@ -22,8 +22,9 @@ pnpm workspace (`pnpm-workspace.yaml`):
 | `packages/element` | `@veylqo/element` |
 | `packages/cdn` | `@veylqo/cdn` |
 
-These packages are empty scaffolds. Do not claim `shorten`, `share`, or
-`<veylqo-share>` exist until their tasks are `done` on the board.
+`@veylqo/core` implements `shorten()` and `share()`. `element` and `cdn`
+are still empty scaffolds. Do not claim `<veylqo-share>` exists until
+its task is `done` on the board.
 
 ## Rules
 

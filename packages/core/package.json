@@ -3,12 +3,16 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Veylqo client. Empty scaffold.",
+  "description": "Veylqo client. shorten() and share(), no UI runtime.",
   "license": "MIT",
   "exports": {
     ".": "./src/index.js"
   },
   "scripts": {
+    "generate": "openapi-typescript openapi/veylqo.json -o src/openapi.d.ts",
     "test": "node --test"
+  },
+  "devDependencies": {
+    "openapi-typescript": "^7.13.0"
   }
 }
