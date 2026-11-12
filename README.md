@@ -8,7 +8,7 @@ pnpm workspaces:
 | --- | --- |
 | `packages/core` | `@veylqo/core` — `shorten()` and `share()` |
 | `packages/element` | `@veylqo/element` — `<veylqo-share>` custom element |
-| `packages/cdn` | `@veylqo/cdn` — CDN bundle scaffold |
+| `packages/cdn` | `@veylqo/cdn` — CDN bundle |
 
 ## Examples
 
@@ -25,8 +25,18 @@ Tracking stays in the service repo. The HTTP contract copied into
 in that repo. Regenerate types with `pnpm --filter @veylqo/core generate`.
 
 ```bash
+pnpm lint
 pnpm test
-pnpm -r build
+pnpm build
 ```
+
+`pnpm lint` checks JavaScript syntax, rejects UI runtime dependencies in
+`core` and `element`, and regenerates OpenAPI types so a stale
+`openapi.d.ts` fails the check. CI runs those three commands from
+`.github/workflows/ci.yml`.
+
+`main` is protected by `.github/rulesets/protect-main.json`. Push a
+branch and open a pull request. The required check is `test`. Squash or
+rebase; do not merge-commit.
 
 License: MIT.

@@ -22,9 +22,9 @@ pnpm workspace (`pnpm-workspace.yaml`):
 | `packages/element` | `@veylqo/element` |
 | `packages/cdn` | `@veylqo/cdn` |
 
-`@veylqo/core` implements `shorten()` and `share()`. `element` and `cdn`
-are still empty scaffolds. Do not claim `<veylqo-share>` exists until
-its task is `done` on the board.
+`@veylqo/core` implements `shorten()` and `share()`. `@veylqo/element`
+is the vanilla custom element. `@veylqo/cdn` builds the script-tag bundle.
+Do not claim a package behavior the board has not marked `done`.
 
 ## Rules
 
@@ -32,4 +32,9 @@ its task is `done` on the board.
 - `@changesets/cli` is a root devDependency only.
 - The publishable key may appear in examples later. The admin token must not.
 - Do not commit secrets. Do not commit or push unless asked.
-- Tests use Node's built-in runner: `pnpm -r test`.
+  `main` is protected. A requested push goes to a branch and a pull
+  request, never a direct push to `main`.
+- Tests use Node's built-in runner: `pnpm test`.
+- `pnpm lint` is `node --check` plus the no-UI-runtime rule. Do not add
+  a linter dependency for that.
+- CI is `.github/workflows/ci.yml`. The job name is `test`.
