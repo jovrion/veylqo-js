@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veylqo CDN example</title>
+  </head>
+  <body>
+    <h1>Veylqo CDN example</h1>
+    <p>After loading the script, the custom element is available.</p>
+
+    <veylqo-share
+      label="Share link"
+      endpoint="https://veylqo.example"
+      key="pk_example"
+      url="https://example.org"
+      title="Check this out"
+      text="Less URL. More destination."
+    ></veylqo-share>
+
+    <script src="../dist/veylqo-cdn.iife.js"></script>
+    <script>
+      const isDefined = !!customElements.get("veylqo-share");
+      document.body.insertAdjacentHTML(
+        "beforeend",
+        `<p>veylqo-share defined: <strong>${isDefined}</strong></p>`,
+      );
+    </script>
+  </body>
+</html>

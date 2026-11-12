@@ -3,12 +3,20 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Veylqo CDN bundle. Empty scaffold.",
+  "description": "Veylqo CDN bundle for direct script tag usage.",
   "license": "MIT",
   "exports": {
     ".": "./src/index.js"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
+    "build": "node ./scripts/build.mjs",
     "test": "node --test"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.10"
   }
 }

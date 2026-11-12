@@ -1,2 +1,6 @@
-// Empty scaffold. The CDN bundle is a later task.
-export {};
+export {
+  VeylqoShareElement,
+  veylqoShareTag,
+  EVENT_SHORTENED,
+  EVENT_SHARED,
+} from "../../element/src/index.js";
