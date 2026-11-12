@@ -1,0 +1,47 @@
+# CI for the JS SDK. pnpm comes from packageManager via corepack.
+# scripts/lint.mjs is the linter: node --check, no UI runtime deps,
+# and a clean openapi-typescript generate. No extra linter package.
+
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Set up Node
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version: 22
+
+      - name: Enable pnpm
+        run: corepack enable && corepack install
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: lint
+        run: pnpm lint
+
+      - name: build
+        run: pnpm build
+
+      - name: test
+        run: pnpm test
+
+      - name: generated files are unchanged
+        run: git diff --exit-code
