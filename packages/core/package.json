@@ -1,0 +1,14 @@
+{
+  "name": "@veylqo/core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Veylqo client. Empty scaffold.",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
