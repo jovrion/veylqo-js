@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veylqo — HTML example</title>
+  </head>
+  <body>
+    <h1>Veylqo custom element — HTML</h1>
+    <p>Plain HTML usage with the custom element.</p>
+
+    <veylqo-share
+      label="Share link"
+      endpoint="https://veylqo.example"
+      key="pk_example"
+      url="https://example.org"
+      title="Check this out"
+      text="Less URL. More destination."
+    ></veylqo-share>
+
+    <script type="module" src="../../packages/element/src/index.js"></script>
+  </body>
+</html>
